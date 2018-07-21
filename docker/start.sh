@@ -3,5 +3,7 @@ PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 cp ../Gemfile ./Gemfile
 cp ../Gemfile.lock ./Gemfile.lock
+echo "COPY database.example.yml to database.yml"
+cp ../config/database.example.yml ../config/database.yml
 rm -rf ../tmp/pids/server.pid
-docker-compose build --no-cache && docker-compose up --force-recreate
+docker-compose build && docker-compose up
