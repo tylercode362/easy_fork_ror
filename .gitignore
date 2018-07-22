@@ -27,5 +27,5 @@
 
 #Ignore database connection config
 /config/database.yml
-
+/config/app.yml
 .DS_Store

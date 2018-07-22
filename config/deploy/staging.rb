@@ -2,8 +2,8 @@
 # ======================
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
-
-# server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
+set :branch, "develop"
+server "35.236.189.73", user: "apps", roles: %w{app db web}
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
@@ -32,7 +32,6 @@
 # Feel free to add new variables to customise your setup.
 
 
-
 # Custom SSH Options
 # ==================
 # You may pass any option but keep in mind that net/ssh understands a
@@ -41,11 +40,10 @@
 #
 # Global options
 # --------------
-#  set :ssh_options, {
-#    keys: %w(/home/rlisowski/.ssh/id_rsa),
-#    forward_agent: false,
-#    auth_methods: %w(password)
-#  }
+  set :ssh_options, {
+    keys: %w(~/.ssh/id_rsa_wow_staging.pub),
+    forward_agent: true,
+  }
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
