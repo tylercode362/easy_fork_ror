@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'pg'
 gem 'sidekiq'
 gem 'nokogiri'
+gem 'webpacker'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'activerecord'
