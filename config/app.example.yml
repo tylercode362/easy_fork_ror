@@ -1,0 +1,10 @@
+default: &default
+  GCP:
+    PROJECT_ID: ""
+    GCS_KEY: ""
+development:
+  <<: *default
+test:
+  <<: *default
+production:
+  <<: *default

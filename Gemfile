@@ -35,6 +35,7 @@ gem 'sidekiq'
 gem 'nokogiri'
 gem 'webpacker'
 gem 'carrierwave'
+gem 'google-cloud-storage'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'activerecord'
