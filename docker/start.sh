@@ -6,5 +6,5 @@ cp ../Gemfile.lock ./Gemfile.lock
 echo "COPY database.example.yml to database.yml"
 cp ../config/database.example.yml ../config/database.yml
 cp ../config/app.example.yml ../config/app.yml
-rm -rf ../tmp/pids/server.pid
+sudo rm -rf ../tmp/pids/server.pid
 docker-compose build && docker-compose up

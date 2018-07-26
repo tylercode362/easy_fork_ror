@@ -1,1 +1,9 @@
-Hello World ! <%= request.remote_ip%>
+<html>
+  <body>
+    Hello World ! <%= request.remote_ip%>
+    <div id="main">
+    </div>
+    <%= render "other" %>
+    <%= stylesheet_link_tag 'application' %>
+  </body>
+</html>
