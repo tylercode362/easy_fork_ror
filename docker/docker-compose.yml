@@ -29,3 +29,10 @@ services:
       - DB_PASSWORD=postgres
     depends_on:
       - db
+  webpack:
+    build: .
+    command: ./bin/webpack-dev-server
+    volumes:
+      - ../:/apps
+    depends_on:
+      - web
