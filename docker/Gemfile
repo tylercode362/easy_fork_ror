@@ -34,6 +34,7 @@ gem 'pg'
 gem 'sidekiq'
 gem 'nokogiri'
 gem 'webpacker'
+gem 'carrierwave'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'activerecord'
