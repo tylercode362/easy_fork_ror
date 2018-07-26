@@ -31,6 +31,8 @@
 .DS_Store
 /public/packs
 /public/packs-test
+/public/javascripts/
+
 /node_modules
 yarn-debug.log*
 .yarn-integrity

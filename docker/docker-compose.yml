@@ -16,7 +16,7 @@ services:
     command: bundle exec rails webpacker:install
     command: bundle exec rails webpacker:check_yarn
     command: bundle exec rails webpacker:yarn_install
-    command: bundle exec rails s -p 3000 -b '0.0.0.0' -e development
+    command: bash -c "rm -rf tmp/ && bundle exec rails s -p 3000 -b '0.0.0.0' -e development"
     volumes:
       - ../:/apps
     ports:
