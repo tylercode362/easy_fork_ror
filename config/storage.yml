@@ -12,9 +12,3 @@ google:
   credentials: <%= Rails.root.join("config/gcs_credentials.json") %>
   project: <%= Cfg["GCP"]["PROJECT_ID"]%>
   bucket: <%= Cfg["GCP"]["BUCKET"]%>
-
-google_local:
-  service: GCS
-  credentials: <%= Rails.root.join("config/gcs_credentials.json") %>
-  project: <%= Cfg["GCP"]["PROJECT_ID"]%>
-  bucket: <%= Cfg["GCP"]["BUCKET"]%>
