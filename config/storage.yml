@@ -1,0 +1,20 @@
+
+local:
+  service: Disk
+  root: <%= Rails.root.join("storage") %>
+ 
+test:
+  service: Disk
+  root: <%= Rails.root.join("tmp/storage") %>
+ 
+google:
+  service: GCS
+  credentials: <%= Rails.root.join(/home/apps/common/shared/config/gcs_credentials.json") %>
+  project: <%= Cfg["GCP"]["PROJECT_ID"]%>
+  bucket: <%= Cfg["GCP"]["BUCKET"]%>
+
+google_local:
+  service: GCS
+  credentials: <%= Rails.root.join("gcs_credentials.json") %>
+  project: <%= Cfg["GCP"]["PROJECT_ID"]%>
+  bucket: <%= Cfg["GCP"]["BUCKET"]%>
