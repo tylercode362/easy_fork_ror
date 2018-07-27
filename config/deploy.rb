@@ -10,7 +10,7 @@ set :puma_env, "production"
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/home/apps/common"
-append :linked_files, "config/app.yml", "config/database.yml", "config/secrets.yml"
+append :linked_files, "config/app.yml", "config/database.yml", "config/secrets.yml", "config/gcs_credentials.json"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
