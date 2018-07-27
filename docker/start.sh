@@ -1,9 +1,16 @@
 #!/bin/bash
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
+echo "copy Gemfile"
 cp ../Gemfile ./Gemfile
 cp ../Gemfile.lock ./Gemfile.lock
-echo "COPY database.example.yml to database.yml"
-cp ../config/database.example.yml ../config/database.yml
-cp ../config/app.example.yml ../config/app.yml
+
+if [ ! -f ../config/database.yml ]; then
+  cp ../config/database.example.yml ../config/database.yml
+  echo "COPY database.example.yml to database.yml"
+fi
+if [ ! -f ../config/app.yml ]; then
+  cp ../config/app.example.yml ../config/app.yml
+  echo "COPY app.example.yml to app.yml"
+fi
 docker-compose build && docker-compose up
