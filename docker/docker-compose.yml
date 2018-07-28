@@ -26,6 +26,11 @@ services:
   webpack:
     build: .
     command: bash -c "./bin/webpack-dev-server"
+    environment:
+      NODE_ENV: development
+      RAILS_ENV: development
+      WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
+      WEBPACKER_DEV_SERVER_PUBLIC: 0.0.0.0:3035
     volumes:
       - ../:/apps
     depends_on:
@@ -33,4 +38,3 @@ services:
       - db
     ports:
       - "3035:3035"
-    network_mode: "host"
