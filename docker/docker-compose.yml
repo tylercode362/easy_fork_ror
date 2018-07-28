@@ -31,6 +31,4 @@ services:
       - ../:/apps
     depends_on:
       - web
-      - db 
-    ports:
-      - "3035:3035"
+      - db
