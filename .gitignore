@@ -21,6 +21,7 @@
 /yarn-error.log
 
 .byebug_history
+vendor/bundle/
 
 # Ignore Docker database
 /docker/database
