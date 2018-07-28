@@ -1,7 +1,9 @@
 default: &default
   GCP:
-    PROJECT_ID: ""
-    BUCKET: ""
+    PROJECT_ID: "ecstatic-doodad-128103"
+    GCS:
+      BUCKET: "local_assets"
+      CREDENTIALS: "<%= Rails.root.join("config/gcs_credentials.json") %>"
 development:
   <<: *default
 test:

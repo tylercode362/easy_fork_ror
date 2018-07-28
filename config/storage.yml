@@ -9,6 +9,6 @@ test:
  
 google:
   service: GCS
-  credentials: <%= Rails.root.join("config/gcs_credentials.json") %>
+  credentials: <%= Cfg["GCP"]["GCS"]["CREDENTIALS"] %>
   project: <%= Cfg["GCP"]["PROJECT_ID"]%>
-  bucket: <%= Cfg["GCP"]["BUCKET"]%>
+  bucket: <%= Cfg["GCP"]["GCS"]["BUCKET"]%>
