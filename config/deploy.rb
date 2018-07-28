@@ -59,6 +59,16 @@ namespace :puma do
   before :start, :make_dirs
 end
 
+namespacew :assets do
+  desc 'sync assets to gcs'
+  task :sync_gcs do
+     on roles(:app) do
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          execute :rake, "assets:sync_gcs"
+        end
+     end
+end
 
 namespace :deploy do
 
@@ -78,6 +88,7 @@ namespace :deploy do
   end
 
   after  :finishing,    :compile_assets
+  after  :complie_assets 'assets:sync_gcs'
   after  :finishing,    :cleanup
   after  :finishing,    :restart
 end

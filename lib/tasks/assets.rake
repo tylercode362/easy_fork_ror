@@ -2,22 +2,21 @@ require "google/cloud/storage"
 
 namespace :assets do
   desc "asstes sync"
-  task :gcs_upload => :environment do
-    
+  task :sync_gcs=> :environment do
     storage = Google::Cloud::Storage.new(
       project_id: Cfg["GCP"]["PROJECT_ID"],
-      credentials: Cfg["GCP"]["CREDENTIALS"]
+      credentials: Cfg["GCP"]["GCS"]["CREDENTIALS"]
     )
 
     bucket = storage.bucket Cfg["GCP"]["GCS"]["BUCKET"]
     
-    manifest = JSON.parse File.read(File.join(Rails.root, "public/assets/manifestjson"))
+    manifest = JSON.parse File.read(File.join(Rails.root, "public/assets/manifest.json"))
 
     manifest.each do | name, path |
-        next unless bucket.file(path).nil?
-        remote_file_path = "webpack/"
+        remote_file_path = File.join("webpack", path)
+        next unless bucket.file(remote_file_path).nil?
         local_file_path = File.join(Rails.root, "public", path)
-
+        result = bucket.create_file(local_file_path, remote_file_path)
     end
   end
 end
