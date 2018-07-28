@@ -32,3 +32,6 @@ services:
     depends_on:
       - web
       - db
+    ports:
+      - "3035:3035"
+    network_mode: "host"
