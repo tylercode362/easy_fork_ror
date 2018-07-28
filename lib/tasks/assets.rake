@@ -16,7 +16,7 @@ namespace :assets do
         remote_file_path = File.join("webpack", path)
         next unless bucket.file(remote_file_path).nil?
         local_file_path = File.join(Rails.root, "public", path)
-        result = bucket.create_file(local_file_path, remote_file_path)
+        result = bucket.create_file(local_file_path, remote_file_path, acl: "public")
     end
   end
 end

@@ -1,4 +1,5 @@
 default: &default
+  assets_host: "http://127.0.0.1:3035"
   GCP:
     PROJECT_ID: "ecstatic-doodad-128103"
     GCS:

@@ -1,25 +1,20 @@
 module AssetsHelper
   def include_javascript(source)
-    return get_assets_cache_path(source)
-    if Rails.env.production?
-      get_assets_cache_path(source)
-    else
-      javascript_pack_tag(source)
-    end
+    get_assets_cache_path(source, "js")
   end
   def include_css(source)
-    return get_assets_cache_path(source)
-    if Rails.env.production?
-      get_assets_cache_path(source)
-    else
-      stylesheet_pack_tag(source)
-    end
+    get_assets_cache_path(source, "css")
   end
 
   def get_assets_cache_path(source, ext = nil)
     @manifest ||= JSON.parse File.read(File.join(Rails.root, "public/assets/manifest.json"))
-    puts Cfg["assets_host"]
-    Cfg["assets_host"]
+    path = Cfg["assets_host"] + @manifest[source.to_s + "." + ext].gsub(".*/", "")
+    case ext
+    when "js"
+      javascript_include_tag(path)
+    when "css"
+      stylesheet_link_tag(path)
+    end
   end
 
 end
