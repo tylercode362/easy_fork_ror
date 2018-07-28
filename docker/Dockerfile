@@ -13,4 +13,4 @@ RUN npm install -g yarn
 COPY ./Gemfile Gemfile
 COPY ./Gemfile.lock Gemfile.lock
 RUN bundle
-CMD bash -c "bundle install && bundle exec rake assets:precompil"
+CMD bash -c "bundle install && bundle exec rake assets:precompil && rails db:setup"
