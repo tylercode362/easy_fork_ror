@@ -90,7 +90,7 @@ namespace :deploy do
   end
 
   after  :finishing,    :compile_assets
-  #after  :complie_assets, assets:sync_gcs
+  after  :compile_assets, 'assets:sync_gcs'
   after  :finishing,    :cleanup
   after  :finishing,    :restart
 end
