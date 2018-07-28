@@ -29,7 +29,7 @@ services:
     command: bundle exec rails webpacker:install
     command: bundle exec rails webpacker:check_yarn
     command: bundle exec rails webpacker:yarn_install
-    command: ./bin/webpack-dev-server
+    command: bash -c "./bin/webpack-dev-server"
     volumes:
       - ../:/apps
     depends_on:
