@@ -13,4 +13,4 @@ if [ ! -f ../config/app.yml ]; then
   cp ../config/app.example.yml ../config/app.yml
   echo "COPY app.example.yml to app.yml"
 fi
-docker-compose build && docker-compose up
+docker-compose build --no-cache && docker-compose up
