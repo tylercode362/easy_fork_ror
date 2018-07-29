@@ -16,11 +16,13 @@ namespace :assets do
         remote_file_path = File.join("webpack", path)
         next unless bucket.file(remote_file_path).nil?
         local_file_path = File.join(Rails.root, "public", path)
-        #TODO work around , 找到其他解法再改(GCS url /assets 會不對)
-        data = File.read(local_file_path)
-        filtered_data = data.gsub(/\/assets\//, "../")
-        File.open(local_file_path, "w") do |f|
-          f.write(filtered_data)
+        if name =~ /\.css\Z/
+          #TODO work around , 找到其他解法再改(GCS url /assets 會不對)
+          data = File.read(local_file_path)
+          filtered_data = data.gsub(/\/assets\//, "../")
+          File.open(local_file_path, "w") do |f|
+            f.write(filtered_data)
+          end
         end
         result = bucket.create_file(local_file_path, remote_file_path, acl: 'public_read')
     end
