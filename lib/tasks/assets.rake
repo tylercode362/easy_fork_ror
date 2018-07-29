@@ -16,7 +16,7 @@ namespace :assets do
         next unless bucket.file(remote_file_path).nil?
         local_file_path = File.join(Rails.root, "public", path)
         if name =~ /\.css\Z/
-          #TODO work around , 找到其他解法再改(GCS url /assets 會不對)
+          #TODO work around , 找到其他解法再改(GCS css 中的 url /assets 會取代掉相對路徑, 要改回來)
           data = File.read(local_file_path)
           filtered_data = data.gsub(/\/assets\//, "../")
           puts filtered_data
