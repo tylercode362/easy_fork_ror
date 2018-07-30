@@ -14,8 +14,7 @@ module BasicProject
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-    proxies = ["35.241.53.197"] # proxies 这个参数接受多种形式的参数，详见 http://api.rubyonrails.org/classes/ActionDispatch/RemoteIp.html
-
-config.middleware.swap ActionDispatch::RemoteIp, ActionDispatch::RemoteIp, true, proxies
+    #ignore cdn ip to get client real_ip
+    config.middleware.swap ActionDispatch::RemoteIp, ActionDispatch::RemoteIp, true, config.app["CDN_IPS"]
   end
 end
