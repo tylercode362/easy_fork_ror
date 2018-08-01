@@ -2,6 +2,7 @@
   <body>
   <div class="main">
    <span><%= request.remote_ip%></span>
+   <span><%= request.env['HTTP_X_FORWARDED_FOR']%></span>
   </div>
   <%= include_css("stylesheets/app")%>
   </body>
