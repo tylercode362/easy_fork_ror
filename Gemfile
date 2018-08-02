@@ -38,6 +38,9 @@ gem 'nokogiri'
 gem 'webpacker'
 gem 'carrierwave'
 gem 'google-cloud-storage'
+#slack
+gem 'slack-ruby-client'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'activerecord'
