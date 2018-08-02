@@ -18,3 +18,7 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+
+every 3.minutes do
+    runner "HelloWorldWorker.new.perform('cronjob')"
+end
