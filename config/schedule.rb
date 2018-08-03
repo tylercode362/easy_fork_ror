@@ -20,6 +20,6 @@ env :PATH, ENV['PATH']
 # Learn more: http://github.com/javan/whenever
 set :output, 'log/whenever.log'
 
-every 1.minutes do
-  runner "HelloWorldWorker.new.perform('crontab')"
+every 1.hours do
+  runner "HelloWorldWorker.new.perform('crontab-1.hours')"
 end
