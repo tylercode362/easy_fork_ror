@@ -18,3 +18,7 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+
+every 1.hours do
+  runner "HelloWorldWorker.new.perform('定時排程每一小時')"
+end
