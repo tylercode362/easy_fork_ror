@@ -16,7 +16,7 @@
 # every 4.days do
 #   runner "AnotherModel.prune_old_records"
 # end
-
+env :PATH, ENV['PATH']
 # Learn more: http://github.com/javan/whenever
 set :output, 'log/whenever.log'
 
