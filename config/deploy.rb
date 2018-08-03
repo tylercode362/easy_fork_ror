@@ -31,6 +31,7 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/syst
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 set :whenever_roles, :cronjob_app
+set :whenever_command,      ->{ [:bundle, :exec, :whenever] }
 # Default value for local_user is ENV['USER']
 # set :local_user, -> { `git config user.name`.chomp }
 
