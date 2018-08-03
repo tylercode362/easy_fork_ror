@@ -18,6 +18,7 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+set :output, 'log/whenever.log'
 
 every 1.minutes do
   runner "HelloWorldWorker.new.perform('crontab')"
