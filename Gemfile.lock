@@ -61,6 +61,9 @@ GEM
     capistrano-rails (1.4.0)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
+    capistrano-sidekiq (1.0.2)
+      capistrano (>= 3.9.0)
+      sidekiq (>= 3.4)
     capistrano3-puma (3.1.1)
       capistrano (~> 3.7)
       capistrano-bundler
@@ -303,6 +306,7 @@ DEPENDENCIES
   activerecord
   byebug
   capistrano-rails
+  capistrano-sidekiq
   capistrano3-puma
   capybara (~> 2.13)
   carrierwave

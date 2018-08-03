@@ -1,4 +1,6 @@
 default: &default
+  redis:
+    url: <%= ENV.fetch('REDIS_HOST') { 'redis://localhost:6379/0' } %>
   assets_host: "http://127.0.0.1:3035"
   GCP:
     PROJECT_ID: "ecstatic-doodad-128103"
