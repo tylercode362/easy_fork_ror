@@ -9,7 +9,10 @@ default: &default
       CREDENTIALS: "<%= Rails.root.join("config/gcs_credentials.json") %>"
   mail:
     sender: "service@wowsofun.com"
-    mailergun_key: ""
+    host: "smtp.mailgun.org"
+    port: "2525"
+    username: ""
+    password: ""
     domain: "www.wowsofun.com"
 development:
   <<: *default
