@@ -1,8 +1,8 @@
 def send_mail(
-    to: 
-    subject: 
-    content:
-    send_at:
+    to: ,
+    subject:, 
+    content:,
+    send_at:,
   )
   require "sinatra"
   require "sendgrid-ruby"
