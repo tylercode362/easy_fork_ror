@@ -91,12 +91,12 @@ Rails.application.configure do
   config.active_storage.service = :google
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      :address => Cfg["mail"]["host"],
-      :port => Cfg["mail"]["port"],
-      :domain => Cfg["mail"]["domain"],
+      :address => config.app["mail"]["host"],
+      :port => config.app["mail"]["port"],
+      :domain => config.app["mail"]["domain"],
       :authentication => "html",
-      :user_name => Cfg["mail"]["username"],
-      :password => Cfg["mail"]["password"],
+      :user_name => config.app["mail"]["username"],
+      :password => config.app["mail"]["password"],
       :enable_starttls_auto => true
   }
 end
