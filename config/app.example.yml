@@ -1,4 +1,5 @@
 default: &default
+  host: "127.0.0.1:3001"
   redis:
     url: <%= ENV.fetch('REDIS_HOST') { 'redis://localhost:6379/0' } %>
   assets_host: <%= ENV.fetch('ASSETS_HOST') { "http://127.0.0.1:3035" } %>
