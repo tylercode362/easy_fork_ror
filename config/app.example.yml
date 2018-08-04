@@ -3,8 +3,8 @@ default: &default
   redis:
     url: <%= ENV.fetch('REDIS_HOST') { 'redis://localhost:6379/0' } %>
   assets_host: <%= ENV.fetch('ASSETS_HOST') { "http://127.0.0.1:3035" } %>
-  #用來解 docker 內下載 css 檔案到 email 內用的 worker around!
-  remote_assets_host: <%= ENV.fetch('REMOTE_ASSETS_HOST') { "http://127.0.0.1:3035" } %>
+  #用來解 docker 內下載 css 檔案到 email 內用的 worker around! only development
+  load_assets_content_from: <%= ENV.fetch('REMOTE_ASSETS_HOST') { "http://127.0.0.1:3035" } %>
   GCP:
     PROJECT_ID: "ecstatic-doodad-128103"
     GCS:

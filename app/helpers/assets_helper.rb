@@ -36,9 +36,9 @@ module AssetsHelper
     if @manifest[source.to_s + "." + ext].present?
       if Rails.env.development?
         path = if @manifest[source.to_s + "." + ext].present?
-          Cfg["remote_assets_host"] + @manifest[source.to_s + "." + ext].gsub(".*/", "")
+          Cfg["load_assets_content_from"] + @manifest[source.to_s + "." + ext].gsub(".*/", "")
         else
-          Cfg["remote_assets_host"] + @manifest[source.to_s].gsub(".*/", "")
+          Cfg["load_assets_content_from"] + @manifest[source.to_s].gsub(".*/", "")
         end
         url = URI.parse(path)
         return Net::HTTP.get(url.host, url.request_uri, url.port  )
