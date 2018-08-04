@@ -46,6 +46,7 @@ gem 'slack-ruby-client'
 gem "sinatra"
 gem "letter_opener", :group => :development
 gem 'premailer-rails'
+gem 'ahoy_email'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'activerecord'
