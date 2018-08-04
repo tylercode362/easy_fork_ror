@@ -40,6 +40,9 @@ gem 'carrierwave'
 gem 'google-cloud-storage'
 #slack
 gem 'slack-ruby-client'
+#email
+gem "sinatra"
+gem "sendgrid-ruby"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
