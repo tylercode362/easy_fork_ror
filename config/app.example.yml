@@ -10,7 +10,7 @@ default: &default
   mail:
     sender: "service@wowsofun.com"
     mailergun_key: ""
-  domain: "wowsofun.com"
+    domain: "www.wowsofun.com"
 development:
   <<: *default
 test:

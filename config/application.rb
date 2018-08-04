@@ -23,8 +23,7 @@ module BasicProject
     config.action_mailer.delivery_method = :mailgun
     config.action_mailer.mailgun_settings = {
       api_key: config.app["mail"]["mailergun_key"],
-      domain: config.app["domain"],
-      from: config.app["sender"],
+      domain: config.app["mail"]["domain"],
     }
   end
 end
