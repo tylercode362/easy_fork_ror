@@ -40,7 +40,11 @@ gem 'carrierwave'
 gem 'google-cloud-storage'
 #slack
 gem 'slack-ruby-client'
-
+#email
+gem "sinatra"
+gem "mailgun-ruby"
+gem "letter_opener", :group => :development
+gem 'premailer-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'activerecord'
