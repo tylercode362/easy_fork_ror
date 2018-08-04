@@ -42,10 +42,9 @@ gem 'google-cloud-storage'
 gem 'slack-ruby-client'
 #email
 gem "sinatra"
-gem "sendgrid-ruby"
+gem "mailgun-ruby"
 gem "letter_opener", :group => :development
 gem 'premailer-rails'
-gem 'sendgrid-actionmailer'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'activerecord'

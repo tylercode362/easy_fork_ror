@@ -7,8 +7,10 @@ default: &default
     GCS:
       BUCKET: "local_assets"
       CREDENTIALS: "<%= Rails.root.join("config/gcs_credentials.json") %>"
-  SENDGRID_API_KEY: ''
-  SENDGRID_SENDER: 'service@wowsofun.com'
+  mail:
+    sender: "service@wowsofun.com"
+    mailergun_key: ""
+  domain: "wowsofun.com"
 development:
   <<: *default
 test:
