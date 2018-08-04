@@ -20,5 +20,10 @@ module BasicProject
     config.autoload_paths+= Dir[Rails.root.join('app', 'workers', '*')]
     config.i18n.default_locale = :'zh-TW'
     config.active_job.queue_adapter = :sidekiq
+    #send mail use sengrid api key
+    config.action_mailer.delivery_method = :sendgrid_actionmailer
+    config.action_mailer.sendgrid_actionmailer_settings = {
+      api_key: config.app['SENDGRID_API_KEY']
+    }
   end
 end
