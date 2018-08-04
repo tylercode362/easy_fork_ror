@@ -327,6 +327,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.2)
   execjs
+  faraday
   google-cloud-storage
   jbuilder (~> 2.5)
   letter_opener

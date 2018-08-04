@@ -1,10 +1,15 @@
 FROM ruby:2.5
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 ENV APP_HOME /apps
+ENV PATH /usr/local/bundle/bin:/usr/local/bundle/gems/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 WORKDIR /apps
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev git
-RUN apt-get -y install build-essential patch ruby-dev zlib1g-dev liblzma-dev
+RUN apt-get update -qq && apt-get install -y build-essential libpq-dev git dnsutils
+RUN apt-get -y install build-essential patch ruby-dev zlib1g-dev liblzma-dev chrome-dev
 #RUN apt-get update && apt-get install postfix libsasl2-modules -y
+RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
+    && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
+# Install Chrome.
+RUN apt-get update && apt-get -y install google-chrome-stable
 RUN curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh
 RUN /bin/bash nodesource_setup.sh
 RUN apt-get install -y nodejs

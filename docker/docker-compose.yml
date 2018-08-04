@@ -15,23 +15,6 @@ services:
     volumes:
       - ./data/redis:/data
     restart: always
-  web:
-    build: .
-    command: bash -c "rm -rf tmp/ && bundle exec rails s -p 3000 -b '0.0.0.0' -e development"
-    volumes:
-      - ../:/apps
-    ports:
-      - "3001:3000"
-    environment:
-      - RAIL_ENV=development
-      - DB_HOST=db
-      - DB_NAME=common
-      - DB_USER=postgres
-      - DB_PASSWORD=postgres
-      - REDIS_HOST=redis://redis:6379
-    depends_on:
-      - db
-      - redis
   webpack:
     build: .
     command: bash -c "./bin/webpack-dev-server"
@@ -43,11 +26,29 @@ services:
     volumes:
       - ../:/apps
     depends_on:
-      - web
       - db
       - redis
     ports:
       - "3035:3035"
+  web:
+    build: .
+    command: bash -c "rm -rf tmp/sockets && bundle exec rails s -p 3000 -b '0.0.0.0' -e development"
+    volumes:
+      - ../:/apps
+    ports:
+      - "3001:3000"
+    environment:
+      - RAIL_ENV=development
+      - DB_HOST=db
+      - DB_NAME=common
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - REDIS_HOST=redis://redis:6379
+      - REMOTE_ASSETS_HOST=http://webpack:3035
+    depends_on:
+      - db
+      - redis
+      - webpack
   sidekiq:
     build: .
     command: bash -c "bundle exec sidekiq -C /apps/config/sidekiq.yml"
@@ -61,6 +62,6 @@ services:
     volumes:
       - ../:/apps
     depends_on:
-      - web
       - db
       - redis
+      - web

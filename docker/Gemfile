@@ -26,6 +26,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+# http client
+gem 'faraday'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 4.0'
 gem 'sidekiq'
@@ -42,7 +44,6 @@ gem 'google-cloud-storage'
 gem 'slack-ruby-client'
 #email
 gem "sinatra"
-gem "mailgun-ruby"
 gem "letter_opener", :group => :development
 gem 'premailer-rails'
 # Use Capistrano for deployment
