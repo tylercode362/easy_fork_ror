@@ -20,10 +20,6 @@ module BasicProject
     config.autoload_paths+= Dir[Rails.root.join('app', 'workers', '*')]
     config.i18n.default_locale = :'zh-TW'
     config.active_job.queue_adapter = :sidekiq
-    config.action_mailer.delivery_method = :mailgun
-    config.action_mailer.mailgun_settings = {
-      api_key: config.app["mail"]["mailergun_key"],
-      domain: config.app["mail"]["domain"],
-    }
+    
   end
 end
