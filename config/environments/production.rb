@@ -94,7 +94,7 @@ Rails.application.configure do
       :address => config.app["mail"]["host"],
       :port => config.app["mail"]["port"],
       :domain => config.app["mail"]["domain"],
-      :authentication => "html",
+      :authentication => :html,
       :user_name => config.app["mail"]["username"],
       :password => config.app["mail"]["password"],
       :enable_starttls_auto => true
