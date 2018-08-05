@@ -49,6 +49,8 @@ gem 'premailer-rails'
 #email tracking
 gem 'ahoy_matey'
 gem 'ahoy_email'
+#debug
+gem "sentry-raven"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'activerecord'

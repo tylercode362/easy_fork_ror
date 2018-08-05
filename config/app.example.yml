@@ -10,6 +10,8 @@ default: &default
     GCS:
       BUCKET: "local_assets"
       CREDENTIALS: "<%= Rails.root.join("config/gcs_credentials.json") %>"
+  sentry:
+    endpoint: ""
   mail:
     sender: "service@wowsofun.com"
     host: "smtp.mailgun.org"
