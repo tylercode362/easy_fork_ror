@@ -1,18 +1,19 @@
 default: &default
   adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  host: <%= ENV['DB_HOST'] %>
+  host: <%= ENV.fetch('DB_HOST') { 127.0.0.1 } %>
   port: 5432
   username: postgres
   password: postgres
 development:
   <<: *default
-  database: <%= ENV['DB_NAME'] %>_development
+  database: <%=  ENV.fetch('DB_NAME') { basic } %>_development
+  port: 5432
 test:
   <<: *default
-  database: <%= ENV['DB_NAME'] %>_test
+  database: <%=  ENV.fetch('DB_NAME') { basic } %>_test
 production:
   <<: *default
-  database: <%= ENV['DB_NAME'] %>_production
+  database: <%=  ENV.fetch('DB_NAME') { basic } %>_production
   username: <%= ENV['DB_USER'] %>
   password: <%= ENV['DB_PASSWORD'] %>

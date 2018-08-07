@@ -5,7 +5,7 @@ class ApplicationMailer < ActionMailer::Base
   layout 'mailer'
 
   def get_assets_css
-    mailer_name = self.class.to_s.downcase
+    mailer_name = self.class.to_s.underscore
     source = "stylesheets/mailer/#{mailer_name}"
     @css = get_file_content(source, "css")
   end
