@@ -17,8 +17,8 @@ services:
     restart: always
   web:
     build: .
-    image: webapp:v1
-    command: bash -c "bundle && rake db:migrate && rm -rf tmp/pids && bundle exec rails s -p 3000 -b '0.0.0.0' -e development"
+    image: webapp_common:v1
+    command: bash -c "bundle && rake db:setup && rake db:migrate && rm -rf tmp/pids && bundle exec rails s -p 3000 -b '0.0.0.0' -e development"
     volumes:
       - ../:/apps
     ports:
@@ -35,7 +35,7 @@ services:
       - db
       - redis
   webpack:
-    image: webapp:v1
+    image: webapp_common:v1
     command: bash -c "./bin/webpack-dev-server"
     environment:
       NODE_ENV: development
@@ -51,7 +51,7 @@ services:
     ports:
       - "3035:3035"
   sidekiq:
-    image: webapp:v1
+    image: webapp_common:v1
     command: bash -c "bundle && bundle exec sidekiq -C /apps/config/sidekiq.yml"
     environment:
       - RAIL_ENV=development
