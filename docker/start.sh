@@ -13,4 +13,5 @@ if [ ! -f ../config/app.yml ]; then
   cp ../config/app.example.yml ../config/app.yml
   echo "COPY app.example.yml to app.yml"
 fi
+docker volume create --name=common_db_data
 docker-compose build --no-cache && docker-compose up

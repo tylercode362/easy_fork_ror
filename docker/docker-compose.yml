@@ -7,7 +7,7 @@ services:
      - POSTGRES_USER=postgres
      - POSTGRES_PASSWORD=postgres
     volumes:
-      - ./database:/var/lib/postgresql/data
+      - common_db_data:/var/lib/postgresql/data
   redis:
     image: redis
     ports:
@@ -18,7 +18,7 @@ services:
   web:
     build: .
     image: webapp_common:v1
-    command: bash -c "bundle && rake db:setup && rake db:migrate && rm -rf tmp/pids && bundle exec rails s -p 3000 -b '0.0.0.0' -e development"
+    command: bash -c "bundle && rake db:migrate 2>/dev/null || rake db:setup && rm -rf tmp/pids && bundle exec rails s -p 3000 -b '0.0.0.0' -e development"
     volumes:
       - ../:/apps
     ports:
@@ -66,3 +66,6 @@ services:
       - db
       - redis
       - web
+volumes:
+  common_db_data:
+    external: true
