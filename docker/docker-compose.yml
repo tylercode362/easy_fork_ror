@@ -36,7 +36,7 @@ services:
       - redis
   webpack:
     image: webapp_common:v1
-    command: bash -c "rails yarn:install && ./bin/webpack-dev-server"
+    command: bash -c "yarn install --modules-folder ./node_modules    && ./bin/webpack-dev-server"
     environment:
       NODE_ENV: development
       RAILS_ENV: development
