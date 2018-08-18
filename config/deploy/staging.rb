@@ -3,7 +3,7 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 set :branch, "develop"
-server "35.203.147.63", user: "apps", roles: %w{app db web cronjob_app}
+server "<server IP>", user: "apps", roles: %w{app db web cronjob_app}
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
@@ -41,7 +41,7 @@ server "35.203.147.63", user: "apps", roles: %w{app db web cronjob_app}
 # Global options
 # --------------
   set :ssh_options, {
-    keys: %w(~/.ssh/id_rsa_wow_staging.pub),
+    keys: %w(~/.ssh/<your-key>.pub),
     forward_agent: true,
   }
 #
