@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Easy to fork and build new app
 
-Things you may want to cover:
+rails Version - 5.2.0
 
-* Ruby version
+Already had
 
-* System dependencies
+1.ahoy_email - tracking your email
+2.sidekiq
+3.webpacker
+4.auto upload your assets to Google Storage
+5.capistrano to deploy
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+In your local, your can run service with docker-compose
