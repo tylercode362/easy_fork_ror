@@ -30,9 +30,9 @@ vendor/bundle/
 /config/database.yml
 /config/app.yml
 .DS_Store
-/public/packs
+#/public/packs
 /public/packs-test
-/public/assets
+#/public/assets
 
 /node_modules
 yarn-debug.log*

@@ -37,7 +37,7 @@ gem 'whenever', :require => false
 # gem 'bcrypt', '~> 3.1.7'
 gem 'pg'
 gem 'nokogiri'
-gem 'webpacker'
+#gem 'webpacker'
 gem 'carrierwave'
 gem 'google-cloud-storage'
 #slack
@@ -60,6 +60,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'rspec-rails'
 end
 
 group :development do
