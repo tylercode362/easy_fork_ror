@@ -86,14 +86,37 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "../stylesheets/app.css":
+/*!******************************!*\
+  !*** ../stylesheets/app.css ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi4vc3R5bGVzaGVldHMvYXBwLmNzcy5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy8uLi9zdHlsZXNoZWV0cy9hcHAuY3NzPzk1YmQiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gcmVtb3ZlZCBieSBleHRyYWN0LXRleHQtd2VicGFjay1wbHVnaW4iXSwibWFwcGluZ3MiOiJBQUFBIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///../stylesheets/app.css\n");
+
+/***/ }),
+
+/***/ "../stylesheets/app.scss":
+/*!*******************************!*\
+  !*** ../stylesheets/app.scss ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi4vc3R5bGVzaGVldHMvYXBwLnNjc3MuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi4vc3R5bGVzaGVldHMvYXBwLnNjc3M/MjRhMyJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyByZW1vdmVkIGJ5IGV4dHJhY3QtdGV4dC13ZWJwYWNrLXBsdWdpbiJdLCJtYXBwaW5ncyI6IkFBQUEiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///../stylesheets/app.scss\n");
+
+/***/ }),
+
 /***/ "./app.js":
 /*!****************!*\
   !*** ./app.js ***!
   \****************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("throw new Error(\"Module build failed (from /home/tyler/side_project/easy_fork_ror/node_modules/babel-loader/lib/index.js):\\nError: Cannot find module 'babel-preset-env' from '/home/tyler/side_project/easy_fork_ror'\\n    at Function.module.exports [as sync] (/home/tyler/side_project/easy_fork_ror/node_modules/resolve/lib/sync.js:58:15)\\n    at resolveStandardizedName (/home/tyler/side_project/easy_fork_ror/node_modules/@babel/core/lib/config/files/plugins.js:101:31)\\n    at resolvePreset (/home/tyler/side_project/easy_fork_ror/node_modules/@babel/core/lib/config/files/plugins.js:58:10)\\n    at loadPreset (/home/tyler/side_project/easy_fork_ror/node_modules/@babel/core/lib/config/files/plugins.js:77:20)\\n    at createDescriptor (/home/tyler/side_project/easy_fork_ror/node_modules/@babel/core/lib/config/config-descriptors.js:154:9)\\n    at items.map (/home/tyler/side_project/easy_fork_ror/node_modules/@babel/core/lib/config/config-descriptors.js:109:50)\\n    at Array.map (<anonymous>)\\n    at createDescriptors (/home/tyler/side_project/easy_fork_ror/node_modules/@babel/core/lib/config/config-descriptors.js:109:29)\\n    at createPresetDescriptors (/home/tyler/side_project/easy_fork_ror/node_modules/@babel/core/lib/config/config-descriptors.js:101:10)\\n    at presets (/home/tyler/side_project/easy_fork_ror/node_modules/@babel/core/lib/config/config-descriptors.js:47:19)\\n    at mergeChainOpts (/home/tyler/side_project/easy_fork_ror/node_modules/@babel/core/lib/config/config-chain.js:320:26)\\n    at /home/tyler/side_project/easy_fork_ror/node_modules/@babel/core/lib/config/config-chain.js:283:7\\n    at buildRootChain (/home/tyler/side_project/easy_fork_ror/node_modules/@babel/core/lib/config/config-chain.js:120:22)\\n    at loadPrivatePartialConfig (/home/tyler/side_project/easy_fork_ror/node_modules/@babel/core/lib/config/partial.js:85:55)\\n    at Object.loadPartialConfig (/home/tyler/side_project/easy_fork_ror/node_modules/@babel/core/lib/config/partial.js:110:18)\\n    at Object.<anonymous> (/home/tyler/side_project/easy_fork_ror/node_modules/babel-loader/lib/index.js:140:26)\\n    at Generator.next (<anonymous>)\\n    at asyncGeneratorStep (/home/tyler/side_project/easy_fork_ror/node_modules/babel-loader/lib/index.js:3:103)\\n    at _next (/home/tyler/side_project/easy_fork_ror/node_modules/babel-loader/lib/index.js:5:194)\\n    at /home/tyler/side_project/easy_fork_ror/node_modules/babel-loader/lib/index.js:5:364\\n    at new Promise (<anonymous>)\\n    at Object.<anonymous> (/home/tyler/side_project/easy_fork_ror/node_modules/babel-loader/lib/index.js:5:97)\\n    at Object._loader (/home/tyler/side_project/easy_fork_ror/node_modules/babel-loader/lib/index.js:220:18)\\n    at Object.loader (/home/tyler/side_project/easy_fork_ror/node_modules/babel-loader/lib/index.js:56:18)\\n    at Object.<anonymous> (/home/tyler/side_project/easy_fork_ror/node_modules/babel-loader/lib/index.js:51:12)\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9hcHAuanMuanMiLCJzb3VyY2VzIjpbXSwibWFwcGluZ3MiOiIiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./app.js\n");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _stylesheets_app_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../stylesheets/app.css */ \"../stylesheets/app.css\");\n/* harmony import */ var _stylesheets_app_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_stylesheets_app_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _stylesheets_app_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../stylesheets/app.scss */ \"../stylesheets/app.scss\");\n/* harmony import */ var _stylesheets_app_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_stylesheets_app_scss__WEBPACK_IMPORTED_MODULE_1__);\n\n\nconsole.log(\"hello world\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9hcHAuanMuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAuanM/OWE3OCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgJy4uL3N0eWxlc2hlZXRzL2FwcC5jc3MnO1xuaW1wb3J0ICcuLi9zdHlsZXNoZWV0cy9hcHAuc2Nzcyc7XG5jb25zb2xlLmxvZyhcImhlbGxvIHdvcmxkXCIpIl0sIm1hcHBpbmdzIjoiQUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFDQTtBQUNBIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./app.js\n");
 
 /***/ })
 

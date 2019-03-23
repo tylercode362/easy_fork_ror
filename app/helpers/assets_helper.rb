@@ -1,15 +1,15 @@
 module AssetsHelper
   require 'open-uri'
 
-  def include_javascript(source)
+  def webpack_include_javascript(source)
     get_assets_cache_path(source, "js")
   end
-  
-  def include_css(source)
+
+  def webpack_link_css(source)
     get_assets_cache_path(source, "css")
   end
-  
-  def show_img(source, options = {})
+
+  def webpack_show_img(source, options = {})
     get_assets_cache_path(source, "img", options)
   end
 

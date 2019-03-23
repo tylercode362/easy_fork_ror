@@ -4,8 +4,12 @@ const webpack = require('webpack');
 const assetPath = path.join(__dirname, '../', 'public', 'assets');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const ManifestPlugin = require('webpack-manifest-plugin');
+const jsPath = path.resolve(__dirname, './javascripts');
+const cssPath = path.resolve(__dirname, './stylesheets');
+const imagePath = path.resolve(__dirname, './images');
+
 const config = module.exports = {
-  context: path.resolve(__dirname, './javascripts'),
+  context: jsPath,
   //source file
   entry: {
     app: './app.js'
@@ -22,6 +26,10 @@ config.output = {
 config.resolve = {
   modules: [__dirname, './node_modules'],
   extensions: ['.js','.jsx', '.coffee', '.json'],
+  alias: {
+    'images': imagePath,
+    'stylesheets': cssPath
+  }
 };
 
 config.plugins = [
@@ -31,9 +39,20 @@ config.plugins = [
     jQuery: 'jquery'
   }),
 
-  new ExtractTextPlugin('[name]_bundle.css', {
+  new ExtractTextPlugin('[name]_[chunkhash].css', {
     allChunks: true
-  })
+  }),
+  new ManifestPlugin({
+    fileName: 'manifest.json',
+    includeCopiedAssets: true,
+    imageExtensions: /^(css|jpe?g|png|gif|svg|woff|woff2|otf|ttf|eot|svg|js|ico|gif|mp4)(\.|$)/i
+  }),
+
+  new webpack.DefinePlugin({
+    _IMAGE_PATH_: JSON.stringify(imagePath),
+    _JS_PATH_:  JSON.stringify(jsPath),
+    _CSS_PATH_:  JSON.stringify(cssPath)
+  }),
 ];
 
 config.module = {
@@ -48,9 +67,8 @@ config.module = {
 
     // url-loader encode font and image file
     {test: /\.(woff|woff2|eot|ttf|otf)\??.*$/, loader: 'url-loader?limit=8192&name=[name].[ext]'},
-    {test: /\.(jpe?g|png|gif|svg)\??.*$/, loader: 'url-loader?limit=8192&name=[name].[ext]'},
-
-    {test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader')},
-    {test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css!sass')}
+    {test: /\.(jpe?g|png|gif|svg)\??.*$/, loader: 'file-loader', options: { name: '[name].[ext]?[hash]' } },
+    {test: /\.css$/, loader: ExtractTextPlugin.extract('css-loader')},
+    {test: /\.scss$/, loader: ExtractTextPlugin.extract('css-loader', 'sass-loader')}
   ]
 };

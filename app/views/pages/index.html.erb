@@ -4,6 +4,7 @@
    <span><%= request.remote_ip%></span>
    <span><%= request.env['HTTP_X_FORWARDED_FOR']%></span>
   </div>
-  <%= include_css("stylesheets/app")%>
+  <%= webpack_include_javascript("app")%>
+  <%= webpack_link_css("app")%>
   </body>
 </html>
