@@ -8,7 +8,7 @@ Already had
 
 1. ahoy_email - tracking your email
 2. sidekiq 
-3. webpacker 
+3. webpack 4
 4. auto upload your assets to Google Storage 
 5. capistrano to deploy 
 
