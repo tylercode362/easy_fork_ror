@@ -1,24 +1,34 @@
 module AssetsHelper
-  require 'open-uri'
 
   def webpack_include_javascript(source)
-    get_assets_cache_path(source, "js")
+    get_assets_path(source, "js")
   end
 
   def webpack_link_css(source)
-    get_assets_cache_path(source, "css")
+    get_assets_path(source, "css")
   end
 
   def webpack_show_img(source, options = {})
-    get_assets_cache_path(source, "img", options)
+    get_assets_path(source, "img", options)
   end
 
-  def get_assets_cache_path(source, ext = nil, options = {})
-    @manifest ||= JSON.parse File.read(File.join(Rails.root, "public/assets/manifest.json"))
-    path = if @manifest[source.to_s + "." + ext].present?
-              Cfg["assets_host"] + @manifest[source.to_s + "." + ext].gsub(".*/", "")
+  def get_manifest
+    manifest_file = if Rails.env.development?
+                      "#{Cfg["assets_host"]}/webpack/manifest.json"
+                    else
+                      Rails.root.join('public','webpack','manifest.json')
+                    end
+    JSON.load(open(manifest_file).read)
+  end
+
+  def get_assets_path(file_name, ext = nil, options = {})
+    asset_server = Cfg["assets_host"]
+    file_name = file_name.gsub("/", "_")
+    @manifest ||= get_manifest
+    path = if @manifest[file_name.to_s + "." + ext].present?
+              asset_server + @manifest[file_name.to_s + "." + ext].gsub(".*/", "")
             else
-              Cfg["assets_host"] + @manifest[source.to_s].gsub(".*/", "")
+              asset_server + @manifest[file_name.to_s].gsub(".*/", "")
             end
     case ext
     when "js"
@@ -30,25 +40,4 @@ module AssetsHelper
     end
   end
 
-  def get_file_content(source, ext)
-    #production 會實際產生 file , local 端用 webpack-dev-server 所以不會
-    @manifest ||= JSON.parse File.read(File.join(Rails.root, "public/assets/manifest.json"))
-    if @manifest[source.to_s + "." + ext].present?
-      if Rails.env.development?
-        path = if @manifest[source.to_s + "." + ext].present?
-          Cfg["load_assets_content_from"] + @manifest[source.to_s + "." + ext].gsub(".*/", "")
-        else
-          Cfg["load_assets_content_from"] + @manifest[source.to_s].gsub(".*/", "")
-        end
-        url = URI.parse(path)
-        return Net::HTTP.get(url.host, url.request_uri, url.port  )
-      else
-        path = File.join(Rails.root, "public", @manifest[source.to_s + "." + ext])
-        if data = open(path).read
-          return data
-        end
-      end
-    end
-    return ""
-  end
 end

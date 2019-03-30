@@ -1,7 +1,7 @@
 const path = require('path');
 const _ = require('lodash');
 const webpack = require('webpack');
-const assetPath = path.join(__dirname, '../', 'public', 'assets');
+const assetPath = path.join(__dirname, '../', 'public', 'webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const ManifestPlugin = require('webpack-manifest-plugin');
 const jsPath = path.resolve(__dirname, './javascripts');
@@ -20,11 +20,11 @@ const config = module.exports = {
 config.output = {
   path: assetPath,
   filename: '[name]_[chunkhash].js',
-  publicPath: '/assets/'
+  publicPath: '/webpack/'
 };
 
 config.resolve = {
-  modules: [__dirname, './node_modules'],
+  modules: [__dirname, '../', 'node_modules'],
   extensions: ['.js','.jsx', '.coffee', '.json'],
   alias: {
     'images': imagePath,
@@ -45,7 +45,8 @@ config.plugins = [
   new ManifestPlugin({
     fileName: 'manifest.json',
     includeCopiedAssets: true,
-    imageExtensions: /^(css|jpe?g|png|gif|svg|woff|woff2|otf|ttf|eot|svg|js|ico|gif|mp4)(\.|$)/i
+    imageExtensions: /^(css|jpe?g|png|gif|svg|woff|woff2|otf|ttf|eot|svg|js|ico|gif|mp4)(\.|$)/i,
+    seed: {}
   }),
 
   new webpack.DefinePlugin({
@@ -69,6 +70,24 @@ config.module = {
     {test: /\.(woff|woff2|eot|ttf|otf)\??.*$/, loader: 'url-loader?limit=8192&name=[name].[ext]'},
     {test: /\.(jpe?g|png|gif|svg)\??.*$/, loader: 'file-loader', options: { name: '[name].[ext]?[hash]' } },
     {test: /\.css$/, loader: ExtractTextPlugin.extract('css-loader')},
-    {test: /\.scss$/, loader: ExtractTextPlugin.extract('css-loader', 'sass-loader')}
+    {test: /\.scss$/, use:
+      [{
+        loader: 'style-loader', // inject CSS to page
+      }, {
+        loader: 'css-loader', // translates CSS into CommonJS modules
+      }, {
+        loader: 'postcss-loader', // Run post css actions
+        options: {
+          plugins: function () { // post css plugins, can be exported to postcss.config.js
+            return [
+              require('precss'),
+              require('autoprefixer')
+            ];
+          }
+        }
+      }, {
+        loader: 'sass-loader' // compiles Sass to CSS
+      }]
+    }
   ]
 };

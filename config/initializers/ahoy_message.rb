@@ -1,1 +1,1 @@
-AhoyEmail.track open: true
+AhoyEmail.default_options[:open] = true
